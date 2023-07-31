@@ -6,14 +6,14 @@ g = 9.81  # Acceleration due to gravity (m/s^2)
 air_density = 1.225  # Air density at sea level and 15 degrees Celsius (kg/m^3)
 
 # Gun and bullet properties
-gun_height = 1  # Height of the gun (m)
+gun_height = 1.5  # Height of the gun (m)
 initial_bullet_velocity = 350  # Initial speed of the bullet (m/s)
 bullet_mass = 0.007  # Mass of the bullet (kg)
 bullet_diameter = 0.009  # Diameter of the bullet (m)
 bullet_drag_coefficient = 0.05  # Drag coefficient of the bullet (dimensionless)
 
 # Target properties
-target_distance = 500  # Horizontal distance to the target (m)
+target_distance = 1000  # Horizontal distance to the target (m)
 target_size = 1  # Diameter of the target (m)
 
 # Calculate the bullet's cross-sectional area
