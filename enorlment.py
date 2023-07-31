@@ -61,8 +61,38 @@ class SchoolSimulation:
         average = total / self.num_students
         print(f"The average amount of time spent in the system is {average} minutes")
 
+    def calculate_average_service_time(self):
+        total_service_time = sum(self.service_times)
+        average_service_time = total_service_time / self.num_students
+        print(f"The average service time is {average_service_time:.2f} minutes")
 
+    def calculate_idle_time_for_servers(self):
+        total_idle_time = sum(sum(data['server_idle_times']) for data in self.servers_data.values())
+        print(f"The total idle time for all servers is {total_idle_time:.2f} minutes")
 
+    def calculate_probability_of_waiting(self):
+        num_students_waiting = sum(1 for data in self.servers_data.values() if max(data['queue_wait_times']) > 0)
+        probability_of_waiting = num_students_waiting / self.num_students
+        print(f"The probability a student waits in the queue is {probability_of_waiting:.2f}")
+
+    def calculate_average_waiting_time(self):
+        total_waiting_time = sum(sum(data['queue_wait_times']) for data in self.servers_data.values())
+        average_waiting_time = total_waiting_time / self.num_students
+        print(f"The average waiting time for a student is {average_waiting_time:.2f} minutes")
+
+    def calculate_average_time_between_arrivals(self):
+        total_time_between_arrivals = sum(
+            self.arrival_times[i] - self.arrival_times[i - 1] for i in range(1, self.num_students))
+        average_time_between_arrivals = total_time_between_arrivals / (self.num_students - 1)
+        print(f"The average time between arrivals is {average_time_between_arrivals:.2f} minutes")
+
+    def calculate_metrics(self):
+        self.generate_average_time_in_system()
+        self.calculate_average_time_between_arrivals()
+        self.calculate_average_service_time()
+        self.calculate_idle_time_for_servers()
+        self.calculate_probability_of_waiting()
+        self.calculate_average_waiting_time()
     def save_to_csv(self):
         import pandas as pd
 
@@ -92,3 +122,4 @@ if __name__ == "__main__":
     school_simulator.simulate_enrolment_service()
     school_simulator.save_to_csv()
     school_simulator.generate_average_time_in_system()
+    school_simulator.calculate_metrics()
