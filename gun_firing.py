@@ -6,7 +6,7 @@ g = 9.81  # Acceleration due to gravity (m/s^2)
 air_density = 1.225  # Air density at sea level and 15 degrees Celsius (kg/m^3)
 
 # Gun and bullet properties
-gun_height = 1.5  # Height of the gun (m)
+gun_height = 1000   # Height of the gun (m)
 initial_bullet_velocity = 350  # Initial speed of the bullet (m/s)
 bullet_mass = 0.007  # Mass of the bullet (kg)
 bullet_diameter = 0.009  # Diameter of the bullet (m)
@@ -24,7 +24,7 @@ wind_speed = 10  # Speed of the wind (m/s)
 wind_direction = math.radians(0)  # Direction of the wind (radians)
 
 # Initial conditions
-firing_angle = math.radians(45)  # Firing angle (radians)
+firing_angle = math.radians(60)  # Firing angle (radians)
 x = 0  # Initial horizontal position (m)
 y = gun_height  # Initial vertical position (m)
 v = initial_bullet_velocity  # Initial velocity (m/s)

@@ -53,23 +53,34 @@ class SchoolSimulation:
             self.servers_data[server_id]['times_in_system'].append(time_in_system)
             self.servers_data[server_id]['server_idle_times'].append(server_idle_time)
 
+    def generate_average_time_in_system(self):
+        total = 0
+        for num in self.service_times:
+
+            total += num
+        average = total / self.num_students
+        print(f"The average amount of time spent in the system is {average} minutes")
+
+
+
     def save_to_csv(self):
         import pandas as pd
 
         for server_id, data in self.servers_data.items():
             ss = {
-                'service_time': data['service_begin_times'],
                 'arrival_time': data['queue_wait_times'],
+                'service_time': data['service_begin_times'],
                 'inter_arrival_time': [data['service_begin_times'][i] - data['queue_wait_times'][i] for i in range(len(data['service_begin_times']))],
                 'time_service_begins': data['service_begin_times'],
                 'queue_wait_time': data['queue_wait_times'],
                 'time_service_ends': data['service_end_times'],
                 'time_in_system': data['times_in_system'],
                 'server_idle_time': data['server_idle_times']
+
             }
 
             df = pd.DataFrame(ss)
-            df.to_csv(f'admission_data_server_{server_id}.csv', index=False)
+            df.to_csv(f'school_simulation_for_teller_{server_id}.csv', index=False)
 
 if __name__ == "__main__":
     num_servers = 2
@@ -80,3 +91,4 @@ if __name__ == "__main__":
     school_simulator.generate_arrival_times()
     school_simulator.simulate_enrolment_service()
     school_simulator.save_to_csv()
+    school_simulator.generate_average_time_in_system()

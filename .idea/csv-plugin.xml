@@ -38,6 +38,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\school_simulation_for_teller_0.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\school_simulation_for_teller_1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>
