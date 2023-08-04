@@ -7,14 +7,14 @@ air_density = 1.225  # Air density at sea level and 15 degrees Celsius (kg/m^3)
 
 # Gun and bullet properties
 gun_height = 1  # Height of the gun (m)
-initial_bullet_velocity = 350  # Initial speed of the bullet (m/s)
-bullet_mass = 0.007  # Mass of the bullet (kg)
+initial_bullet_velocity = 365  # Initial speed of the bullet (m/s)
+bullet_mass = 0.0095  # Mass of the bullet (kg)
 bullet_diameter = 0.009  # Diameter of the bullet (m)
 bullet_drag_coefficient = 0.05  # Drag coefficient of the bullet (dimensionless)
 
 # Target properties
-target_distance = 1000  # Horizontal distance to the target (m)
-target_size = 1  # Diameter of the target (m)
+target_distance = 100  # Horizontal distance to the target (m)
+target_size = 10  # Diameter of the target (m)
 
 # Calculate the bullet's cross-sectional area
 bullet_area = math.pi * (bullet_diameter / 2)**2
@@ -24,7 +24,7 @@ wind_speed = 10  # Speed of the wind (m/s)
 wind_direction = math.radians(0)  # Direction of the wind (radians)
 
 # Initial conditions
-firing_angle = math.radians(90)  # Firing angle (radians)
+firing_angle = math.radians(60)  # Firing angle (radians)
 x = 0  # Initial horizontal position (m)
 y = gun_height  # Initial vertical position (m)
 v = initial_bullet_velocity  # Initial velocity (m/s)
